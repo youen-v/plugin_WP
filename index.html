@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="script/loading.js"></script>
+    <script src="https://unpkg.com/pdf-lib"></script>
+    <script src="https://kit.fontawesome.com/e0a7ccb2d6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="script/index.js"></script>
+    <script src="script/addElem.js"></script>
+    <script src="script/delElem.js"></script>
+    <script src="script/showModal.js"></script>
+    <script src="script/generatePdf.js"></script>
+</head>
+<body>
+    <main>
+        <div id="logo">
+            <img src="./assets/cs_logo.png" alt="Logo CynectStudio">
+        </div>
+        <div id="containForm">
+            <div id="headerForm">
+                <h1>Bienvenue sur le Simulateur de devis CynectStudio</h1>
+                <p><i>En quelques clicks trouver votre prestation à votre prix !</i></p>
+            </div>
+            <div id="bodyForm">
+                <form>
+                    <fieldset>
+                        <select name="project" id="project">
+                            <option value="defaultValue">Choissiez votre projet</option>
+                            <option value="designProject">Projet Design</option>
+                            <option value="photoProject">Projet Photo</option>
+                            <option value="videoProject">Projet Vidéo</option>
+                            <option value="webProject">Projet Web</option>
+                        </select>
+                        <select name="designProject" id="designProject" class="display">
+                            <option value="defaultValue">Choissiez votre solution Design</option>
+                            <option value="Logo">Logo</option>
+                            <option value="Carte de Visite">Carte de Visite</option>
+                            <option value="Affiche">Affiche</option>
+                        </select>
+                        <select name="photoProject" id="photoProject" class="display">
+                            <option value="defaultValue">Choissiez votre solution Photo</option>
+                            <option value="Shooting photo">Shooting photo</option>
+                            <option value="Photo Produit">Photo de produit</option>
+                            <option value="Photo évènements">Photo d'évènement</option>
+                        </select>
+                        <select name="videoProject" id="videoProject" class="display">
+                            <option value="defaultValue">Choissiez votre solution Vidéo</option>
+                            <option value="Clip">Clip</option>
+                            <option value="Montage Vidéo">Montage vidéo</option>
+                            <option value="Film d'entreprise">Film d'entreprise</option>
+                            <option value="Vidéo réseaux sociaux">Vidéo format réseaux sociaux</option>
+                            <option value="Publicité">Publicité</option>
+                        </select>
+                        <select name="webProject" id="webProject" class="display">
+                            <option value="defaultValue">Choissiez votre solution Web</option>
+                            <option value="Site Web">Création site web</option>
+                            <option value="Maquette">Maquettage</option>
+                            <option value="Hébergement">Hébergement web</option>
+                            <option value="Optimisation UI/UX">Optimisation UI/UX</option>
+                            <option value="Refont site web">Refonte site web</option>
+                        </select>
+                    </fieldset>
+                    <fieldset id="itemsContain" class="display"></fieldset>
+                    <fieldset id="containSubmit">
+                        <button id="addBtn" class="btn addBtn display">Ajouter</button>
+                        <button type="submit" class="btn submitBtn">Simuler</button>
+                        <p><i>Ce devis est non-contractuel</i></p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div id="modalPdf" class="display">
+            <div class="crossBtn">
+                <i class="fa-solid fa-x"></i>
+            </div>
+            <iframe id="pdf" class="pdfSize"></iframe>
+        </div>
+    </main>
+    <aside>
+        <div id="containImg"></div>
+    </aside>
+</body>
+</html>
