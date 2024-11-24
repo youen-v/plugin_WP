@@ -18,7 +18,7 @@
 </head>
 <body>
     <main>
-        <div id="logo">
+        <div id="logo" cl>
             <img src="./assets/cs_logo.png" alt="Logo CynectStudio">
         </div>
         <div id="containForm">
@@ -29,41 +29,82 @@
             <div id="bodyForm">
                 <form>
                     <fieldset>
-                        <select name="project" id="project">
-                            <option value="defaultValue">Choissiez votre projet</option>
-                            <option value="designProject">Projet Design</option>
-                            <option value="photoProject">Projet Photo</option>
-                            <option value="videoProject">Projet Vidéo</option>
-                            <option value="webProject">Projet Web</option>
-                        </select>
-                        <select name="designProject" id="designProject" class="display">
-                            <option value="defaultValue">Choissiez votre solution Design</option>
-                            <option value="Logo">Logo</option>
-                            <option value="Carte de Visite">Carte de Visite</option>
-                            <option value="Affiche">Affiche</option>
-                        </select>
-                        <select name="photoProject" id="photoProject" class="display">
-                            <option value="defaultValue">Choissiez votre solution Photo</option>
-                            <option value="Shooting photo">Shooting photo</option>
-                            <option value="Photo Produit">Photo de produit</option>
-                            <option value="Photo évènements">Photo d'évènement</option>
-                        </select>
-                        <select name="videoProject" id="videoProject" class="display">
-                            <option value="defaultValue">Choissiez votre solution Vidéo</option>
-                            <option value="Clip">Clip</option>
-                            <option value="Montage Vidéo">Montage vidéo</option>
-                            <option value="Film d'entreprise">Film d'entreprise</option>
-                            <option value="Vidéo réseaux sociaux">Vidéo format réseaux sociaux</option>
-                            <option value="Publicité">Publicité</option>
-                        </select>
-                        <select name="webProject" id="webProject" class="display">
-                            <option value="defaultValue">Choissiez votre solution Web</option>
-                            <option value="Site Web">Création site web</option>
-                            <option value="Maquette">Maquettage</option>
-                            <option value="Hébergement">Hébergement web</option>
-                            <option value="Optimisation UI/UX">Optimisation UI/UX</option>
-                            <option value="Refont site web">Refonte site web</option>
-                        </select>
+                        <div class="projectLabel">
+                            <h2>Projet Design</h2>
+                            <div>
+                                <input type="checkbox" name="Logo" id="Logo">
+                                <label for="Logo">Logo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Carte de Visite" id="Carte de Visite">
+                                <label for="Carte de Visite">Carte de Visite</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Affiche" id="Affiche">
+                                <label for="Affiche">Affiche</label>
+                            </div>
+                        </div>
+                        <div class="projectLabel">
+                            <h2>Projet Photo</h2>
+                            <div>
+                                <input type="checkbox" name="Shooting photo" id="Shooting photo">
+                                <label for="Shooting photo">Shooting photo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Photo Produit" id="Photo Produit">
+                                <label for="Photo Produit">Photo de produit</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Photo évènements" id="Photo évènements">
+                                <label for="Photo évènements">Photo d'évènements</label>
+                            </div>
+                        </div>
+                        <div class="projectLabel">
+                            <h2>Projet Vidéo</h2>
+                            <div>
+                                <input type="checkbox" name="Clip" id="Clip">
+                                <label for="Clip">Clip</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Montage Vidéo" id="Montage Vidéo">
+                                <label for="Montage Vidéo">Montage Vidéo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Film d'entreprise" id="Film d'entreprise">
+                                <label for="Film d'entreprise">Film d'entreprise</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Vidéo réseaux sociaux" id="Vidéo réseaux sociaux">
+                                <label for="Vidéo réseaux sociaux">Vidéo réseaux sociaux</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Publicité" id="Publicité">
+                                <label for="Publicité">Publicité</label>
+                            </div>
+                        </div>
+                        <div class="projectLabel">
+                            <h2>Projet Web</h2>
+                            <div>
+                                <input type="checkbox" name="Site Web" id="Site Web">
+                                <label for="Site Web">Création site web</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Maquettage" id="Maquettage">
+                                <label for="Maquettage">Maquettage</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Hébergement" id="Hébergement">
+                                <label for="Hébergement">Hébergement web</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Optimisation UI/UX" id="Optimisation UI/UX">
+                                <label for="Optimisation UI/UX">Optimisation UI/UX</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Refonte site web" id="Refonte site web">
+                                <label for="Refonte site web">Refonte site web</label>
+                            </div>
+                        </div>
                     </fieldset>
                     <fieldset id="itemsContain" class="display"></fieldset>
                     <fieldset id="containSubmit">
@@ -82,7 +123,11 @@
         </div>
     </main>
     <aside>
-        <div id="containImg"></div>
+        <div id="containImg">
+            <div id="logoAnimation">
+                <img src="./assets/cs_logo.png" alt="Logo CynectStudio">
+            </div>
+        </div>
     </aside>
 </body>
 </html>
