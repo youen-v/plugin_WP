@@ -33,6 +33,12 @@ aside {
   height: 14.5rem;
 }
 
+#containImg > img {
+  width: 70rem;
+  height: auto;
+  border-radius: 2rem;
+}
+
 #containForm {
   width: 90%;
   display: flex;
