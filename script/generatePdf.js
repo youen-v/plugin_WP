@@ -38,6 +38,7 @@ const priceArray = {
   "Refont site web": "800",
 };
 document.addEventListener("DOMContentLoaded", () => {
+  const resetPdf = document.querySelector("div.crossBtn");
   const sendBucket = document.querySelector("button[type=submit]");
   sendBucket.addEventListener("click", (event) => {
     event.preventDefault();
@@ -84,9 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       createPdf();
     }, 3000);
+
+    if (innerWidth < 1024) {
+      resetPdf.click();
+    }
   });
 
-  const resetPdf = document.querySelector("div.crossBtn");
   resetPdf.addEventListener("click", () => {
     bucket = [];
   });
@@ -195,4 +199,18 @@ async function createPdf() {
   // Générer le PDF en base64 et afficher dans un iframe
   const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
   document.getElementById("pdf").src = pdfDataUri;
+
+  if (innerWidth < 1024) {
+    const pdfBytes = await pdfDoc.save();
+
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "cynectstudio.pdf";
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+  }
 }
