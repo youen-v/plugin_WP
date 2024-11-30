@@ -84,11 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
         bucket.push(element.id);
       });
       createPdf();
+      if (innerWidth < 1024) {
+        resetPdf.click();
+      }
     }, 3000);
-
-    if (innerWidth < 1024) {
-      resetPdf.click();
-    }
   });
 
   resetPdf.addEventListener("click", () => {
