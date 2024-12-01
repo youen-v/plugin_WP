@@ -3,7 +3,7 @@ function loadingProgress() {
   const progressPercentage = document.getElementById("progress-percentage");
 
   // Durée de l'animation (en secondes)
-  const animationDuration = 1; // Changez ici pour ajuster la durée
+  const animationDuration = 2; // Changez ici pour ajuster la durée
 
   // Fonction d'animation
   let progress = 0;
@@ -84,9 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         bucket.push(element.id);
       });
       createPdf();
-      if (innerWidth < 1024) {
-        resetPdf.click();
-      }
     }, 3000);
   });
 
@@ -195,21 +192,30 @@ async function createPdf() {
     size: 20,
     color: grisFonce,
   });
-  // Générer le PDF en base64 et afficher dans un iframe
-  const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
-  document.getElementById("pdf").src = pdfDataUri;
 
-  if (innerWidth < 1024) {
-    const pdfBytes = await pdfDoc.save();
+  // Sauvegarder le PDF
+  const pdfBytes = await pdfDoc.save();
 
+  // Différencier le comportement entre ordinateur et mobile
+  if (innerWidth >= 1024) {
+    // Ordinateur : Afficher dans l'iframe
+    const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    document.getElementById("pdf").src = pdfDataUri;
+  } else {
+    // Mobile : Fournir un lien de téléchargement
     const blob = new Blob([pdfBytes], { type: "application/pdf" });
-
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = "cynectstudio.pdf";
-    document.body.appendChild(link);
-    link.click();
 
-    document.body.removeChild(link);
+    // Insérer le lien dans le DOM
+    const modal = document.getElementById("modalPdf");
+    modal.innerHTML = ""; // Nettoyer le contenu précédent
+    modal.appendChild(link);
+    link.textContent = "Télécharger le PDF";
+    link.style.display = "inline-block";
+    link.style.marginTop = "10px";
+    link.style.fontSize = "2.4rem";
+    link.style.color = "#7a5af8";
   }
 }
